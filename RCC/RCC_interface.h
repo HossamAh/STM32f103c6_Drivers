@@ -29,6 +29,7 @@
 /*---------------------------------------------------------------------------------------------------------------------
  *  GLOBAL MACROS
 ---------------------------------------------------------------------------------------------------------------------*/
+/** @defgroup  _PERIPHERAL_EN_t*/
 /*********** Macros Of :- RCC AHB1 CLK ENABLE ***************/
 
 #define _PERIPHERAL_EN_DMA1EN     0U
@@ -193,7 +194,7 @@ void MRCC_voidInitSysClock(const RCC_initConfig_t* pInitConfig);
 * \Description     : Enable the clock of specific peripheral on specific bus                                                                              
 * \Sync\Async      : Synchronous                                               
 * \Reentrancy      : Non Reentrant                                             
-* \Parameters (in) : Copy_uint8BusId Bus idenifier   Copy_uint8PeripheralId Peripherral identifier.                   
+* \Parameters (in) : Copy_uint8BusId Bus idenifier   Copy_uint8PeripheralId Peripherral identifier@ref _PERIPHERAL_EN_t.                   
 * \Parameters (out): None                                                      
 * \Return value:   : None
 *******************************************************************************/

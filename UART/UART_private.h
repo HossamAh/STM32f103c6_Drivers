@@ -67,6 +67,26 @@ typedef union
 }UART_USART_CR1_TAG;
 
 
+/** @brief CR3_Reg_t USART Control register 3 */
+typedef union
+{
+    uint32 r;
+    struct CR3_Reg_TAG
+    {
+        uint32 EIE                      :1;
+        uint32 IREN                     :1;
+        uint32 IRLP                     :1;
+        uint32 HDSEL                    :1;
+        uint32 NACK                     :1;
+        uint32 SCEN                     :1;
+        uint32 DMAR                     :1;
+        uint32 DMAT                     :1;
+        uint32 RTSE                     :1;
+        uint32 CTSE                     :1;
+        uint32 CTSIE                    :1;
+        uint32                          :21;
+    }B;
+}CR3_Reg_t;
 
 /*---------------------------------------------------------------------------------------------------------------------
  *  GLOBAL MACROS
@@ -75,6 +95,7 @@ typedef union
 #define     USART_DR        (*((volatile uint32*)0x40013804))
 #define     USART_BRR       (*((volatile uint32*)0x40013808))
 #define     USART_CR1       (*((volatile UART_USART_CR1_TAG*)0x4001380C))
+#define     USART_CR3       (*((volatile CR3_Reg_t*)0x40013814))
 
 
 

@@ -206,3 +206,63 @@ uint8 MUSART1_u8ReceiveDataBlock(uint8* Copy_u8DataArr)
     }while(u8data!='\0');
     Copy_u8DataArr[u8count++]='\0';
 }
+
+/******************************************************************************
+* \Syntax          : void MUSART1_u8EnableDMATransmission(void)                                 
+* \Description     : Enable DMA to load data from memory to Data Register
+* \Sync\Async      : Synchronous                                               
+* \Reentrancy      : Non Reentrant                                             
+* \Parameters (in) : None                   
+* \Parameters (out): None                                                      
+* \Return value:   : None
+*******************************************************************************/
+void MUSART1_VoidEnableDMATransmission(void)
+{
+    /*Enable for transmission*/
+    USART_CR3.B.DMAT=1;
+    /*clear TC bit in SR*/
+    USART_SR.B.TC=0;
+}
+
+/******************************************************************************
+* \Syntax          : void MUSART1_u8EnableDMAReception(void)                                 
+* \Description     : Enable DMA to read data from Data Register To memory
+* \Sync\Async      : Synchronous                                               
+* \Reentrancy      : Non Reentrant                                             
+* \Parameters (in) : None                   
+* \Parameters (out): None                                                      
+* \Return value:   : None
+*******************************************************************************/
+void MUSART1_VoidEnableDMAReception(void)
+{
+    /*Enable for reception*/
+    USART_CR3.B.DMAR=1;
+}
+
+/******************************************************************************
+* \Syntax          : void MUSART1_u8DisableDMATransmission(void)                                 
+* \Description     : Disable DMA to load data from memory to Data Register
+* \Sync\Async      : Synchronous                                               
+* \Reentrancy      : Non Reentrant                                             
+* \Parameters (in) : None                   
+* \Parameters (out): None                                                      
+* \Return value:   : None
+*******************************************************************************/
+void MUSART1_VoidDisableDMATransmission(void)
+{
+    USART_CR3.B.DMAT=0;
+}
+
+/******************************************************************************
+* \Syntax          : void MUSART1_u8DisableDMAReception(void)                                 
+* \Description     : Disable DMA to read data from Data Register To memory
+* \Sync\Async      : Synchronous                                               
+* \Reentrancy      : Non Reentrant                                             
+* \Parameters (in) : None                   
+* \Parameters (out): None                                                      
+* \Return value:   : None
+*******************************************************************************/
+void MUSART1_VoidDisableDMAReception(void)
+{
+    USART_CR3.B.DMAR=0;
+}

@@ -227,7 +227,7 @@ void MADC_VoidDisableInterrupt(ADC_Interrupt_t interruptType);
 *******************************************************************************/
 void MADC_VoidPollOnConversion(void) 
 {
-    while(ADC->SR.B.EOC == 0);/*wait until hardware set it*/
+    while(ADC->SR.B.EOC != 1);/*wait until hardware set it*/
 }
 
 /******************************************************************************
